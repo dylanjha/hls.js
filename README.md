@@ -135,7 +135,7 @@ First, checkout the repository and install the required dependencies
 git clone https://github.com/video-dev/hls.js.git
 cd hls.js
 # After cloning or pulling from the repository, make sure all dependencies are up-to-date
-npm install ci
+npm ci
 # Run dev-server for demo page (recompiles on file-watch, but doesn't write to actual dist fs artifacts)
 npm run dev
 # After making changes run the sanity-check task to verify all checks before committing changes
@@ -152,7 +152,7 @@ Join the discussion on Slack via [video-dev.org](https://video-dev.org) in #hlsj
 Build all flavors (suitable for prod-mode/CI):
 
 ```
-npm install ci
+npm ci
 npm run build
 ```
 
