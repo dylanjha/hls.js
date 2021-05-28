@@ -30,6 +30,7 @@ class SubtitleTrackController extends BasePlaylistController {
 
   constructor(hls: Hls) {
     super(hls, '[subtitle-track-controller]');
+    console.log('debug SubtitleTrackController');
     this.registerListeners();
   }
 
@@ -148,6 +149,7 @@ class SubtitleTrackController extends BasePlaylistController {
     const { id, details } = data;
     const { trackId } = this;
     const currentTrack = this.tracksInGroup[trackId];
+    console.log('debug onSubtitleTrackLoaded', data);
 
     if (!currentTrack) {
       this.warn(`Invalid subtitle track id ${id}`);
@@ -291,6 +293,7 @@ class SubtitleTrackController extends BasePlaylistController {
    * A value of -1 will disable all subtitle tracks.
    */
   private toggleTrackModes(newId: number): void {
+    console.log('debug toggleTrackModes', newId);
     const { media, subtitleDisplay, trackId } = this;
     if (!media) {
       return;
@@ -373,6 +376,7 @@ class SubtitleTrackController extends BasePlaylistController {
   }
 
   private onTextTracksChanged(): void {
+    console.log('debug onTextTracksChanged');
     // Media is undefined when switching streams via loadSource()
     if (!this.media || !this.hls.config.renderTextTracksNatively) {
       return;
